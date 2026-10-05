@@ -1,0 +1,15 @@
+# Example settings for the generated appliedapotheosis-server.toml.
+# Restart the world/server after editing its live server config.
+[simulator]
+# Receive-only FE buffer on all six faces, persistent across saves.
+feCapacity = 100000
+# Maximum per receiveEnergy call; multiple connections can make multiple calls.
+feMaxReceive = 10000
+# FE per active lane per processing step; acceleration multiplies paid steps.
+spawnerFePerTick = 64
+gatewayFePerTick = 128
+
+[infusion]
+# Additional ME fluids, in mB per XP point. Add entries for your pack's XP fluids.
+# Just Dire Things XP is always accepted at 20 mB per point.
+xpFluids = ["industrialforegoing:essence=20"]

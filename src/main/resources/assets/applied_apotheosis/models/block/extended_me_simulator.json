@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "applied_apotheosis:block/simulator_bays_extended",
+    "south": "applied_apotheosis:block/simulator_bays_extended",
+    "east": "applied_apotheosis:block/me_simulator_side",
+    "west": "applied_apotheosis:block/me_simulator_side",
+    "up": "applied_apotheosis:block/me_simulator_top",
+    "down": "applied_apotheosis:block/me_simulator_top",
+    "particle": "applied_apotheosis:block/me_simulator_side"
+  }
+}

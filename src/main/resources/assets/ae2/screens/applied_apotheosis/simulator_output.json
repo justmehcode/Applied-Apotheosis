@@ -1,0 +1,15 @@
+{
+  "includes": ["../common/common.json"],
+  "generatedBackground": {"width": 110, "height": 100},
+  "text": {"dialog_title": {"text": "Output sides", "position": {"left": 8, "top": 6}}},
+  "widgets": {
+    "return": {"right": 23, "top": -5},
+    "clear": {"left": 88, "top": 78, "width": 8, "height": 8},
+    "front": {"left": 44, "top": 46},
+    "back": {"left": 66, "top": 68},
+    "top": {"left": 44, "top": 24},
+    "right": {"left": 22, "top": 46},
+    "bottom": {"left": 44, "top": 68},
+    "left": {"left": 66, "top": 46}
+  }
+}

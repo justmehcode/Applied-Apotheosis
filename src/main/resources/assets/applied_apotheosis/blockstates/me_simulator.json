@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "applied_apotheosis:block/me_simulator",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "applied_apotheosis:block/me_simulator",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "applied_apotheosis:block/me_simulator",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "applied_apotheosis:block/me_simulator",
+      "y": 270
+    }
+  }
+}

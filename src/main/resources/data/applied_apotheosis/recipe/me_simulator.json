@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CPC",
+    "EDE",
+    "CPC"
+  ],
+  "key": {
+    "C": {
+      "item": "ae2:fluix_crystal"
+    },
+    "P": {
+      "item": "ae2:engineering_processor"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "D": {
+      "item": "ae2:drive"
+    }
+  },
+  "result": {
+    "id": "applied_apotheosis:me_simulator",
+    "count": 1
+  }
+}

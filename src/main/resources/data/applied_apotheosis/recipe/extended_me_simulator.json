@@ -1,0 +1,32 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "extendedae"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CPC",
+    "RSR",
+    "CPC"
+  ],
+  "key": {
+    "C": {
+      "item": "extendedae:entro_crystal"
+    },
+    "P": {
+      "item": "extendedae:concurrent_processor"
+    },
+    "R": {
+      "item": "ae2:capacity_card"
+    },
+    "S": {
+      "item": "applied_apotheosis:me_simulator"
+    }
+  },
+  "result": {
+    "id": "applied_apotheosis:extended_me_simulator",
+    "count": 1
+  }
+}

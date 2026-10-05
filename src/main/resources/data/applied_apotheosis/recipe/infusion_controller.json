@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["PFP","CRC","PFP"],"key":{"P":{"item":"minecraft:iron_ingot"},"F":{"item":"ae2:fluix_crystal"},"C":{"item":"ae2:engineering_processor"},"R":{"item":"apothic_enchanting:raven_enchanting_table"}},"result":{"id":"applied_apotheosis:infusion_controller","count":1}}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "neoforge:conditions": [{"type": "neoforge:mod_loaded", "modid": "extendedae"}],
+  "pattern": [
+    "CPC",
+    "RIR",
+    "CPC"
+  ],
+  "key": {
+    "C": {
+      "item": "extendedae:entro_crystal"
+    },
+    "P": {
+      "item": "extendedae:concurrent_processor"
+    },
+    "R": {
+      "item": "ae2:capacity_card"
+    },
+    "I": {
+      "item": "applied_apotheosis:infusion_controller"
+    }
+  },
+  "result": {
+    "id": "applied_apotheosis:extended_infusion_controller",
+    "count": 1
+  }
+}

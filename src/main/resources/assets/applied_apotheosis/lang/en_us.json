@@ -1,0 +1,20 @@
+{
+  "block.applied_apotheosis.infusion_controller": "Infusion Controller",
+  "block.applied_apotheosis.extended_infusion_controller": "Extended Infusion Controller",
+  "item.applied_apotheosis.xp_receipt": "ME Experience Refund",
+  "config.jade.plugin_applied_apotheosis.status": "Infusion controller status",
+  "jade.applied_apotheosis.jobs": "Infusions: %s / %s",
+  "jade.applied_apotheosis.speed": "Speed: %sx",
+  "jade.applied_apotheosis.source": "%s",
+  "jade.applied_apotheosis.personal": "Personal XP",
+  "jade.applied_apotheosis.me": "External XP",
+  "jade.applied_apotheosis.online": "Device Online",
+  "jade.applied_apotheosis.offline": "Device Offline",
+  "jade.applied_apotheosis.waiting": "Waiting for XP",
+  "jade.applied_apotheosis.output_full": "Output full",
+  "jade.applied_apotheosis.job": "Slot %s: %s \u2014 %s",
+  "block.applied_apotheosis.me_simulator": "ME Simulator",
+  "block.applied_apotheosis.extended_me_simulator": "Extended ME Simulator",
+  "config.jade.plugin_applied_apotheosis.simulator_status": "ME Simulator status",
+  "item.applied_apotheosis.captured_gateway_reward": "Captured Gateway Creature"
+}

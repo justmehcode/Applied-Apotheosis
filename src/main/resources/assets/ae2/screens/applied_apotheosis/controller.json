@@ -1,0 +1,47 @@
+{
+  "includes": [
+    "../inscriber.json"
+  ],
+  "generatedBackground": {
+    "width": 176,
+    "height": 244
+  },
+  "background": {
+    "texture": "guis/inscriber.png",
+    "srcRect": [
+      0,
+      0,
+      176,
+      82
+    ]
+  },
+  "images": {
+    "centerClear": {
+      "texture": "guis/inscriber.png",
+      "srcRect": [
+        8,
+        20,
+        22,
+        22
+      ]
+    },
+    "verticalConnector": {
+      "texture": "guis/inscriber.png",
+      "srcRect": [
+        74,
+        28,
+        2,
+        8
+      ]
+    },
+    "outputConnector": {
+      "texture": "guis/inscriber.png",
+      "srcRect": [
+        82,
+        45,
+        6,
+        4
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "applied_apotheosis:infusion_controller",
+    "applied_apotheosis:extended_infusion_controller",
+    "applied_apotheosis:me_simulator",
+    "applied_apotheosis:extended_me_simulator"
+  ]
+}

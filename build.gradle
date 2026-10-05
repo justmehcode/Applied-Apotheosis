@@ -1,0 +1,64 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.147'
+}
+group = 'dev.appliedapotheosis'
+version = '1.0.0'
+base { archivesName = 'AppliedApotheosis-1.21.1' }
+java { toolchain.languageVersion = JavaLanguageVersion.of(21); withSourcesJar() }
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.blamejared.com'; content { includeGroup 'vazkii.patchouli' } }
+    maven { url = 'https://maven.shadowsoffire.dev/releases'; content { includeGroup 'dev.shadowsoffire' } }
+    maven { url = 'https://modmaven.dev'; content { includeGroup 'org.appliedenergistics' } }
+    maven { url = 'https://maven.blamejared.com'; content { includeGroup 'mezz.jei' } }
+    maven { url = 'https://www.cursemaven.com'; content { includeGroup 'curse.maven' } }
+    maven { url = 'https://maven.theillusivec4.top'; content { includeGroup 'top.theillusivec4.curios' } }
+    maven { url = 'https://api.modrinth.com/maven'; content { includeGroup 'maven.modrinth' } }
+}
+neoForge {
+    version = '21.1.251'
+    mods { applied_apotheosis { sourceSet sourceSets.main } }
+    runs {
+        client { client() }
+        server { server(); programArgument '--nogui' }
+    }
+}
+dependencies {
+    compileOnly 'maven.modrinth:experiencelib:xrg5MjEA'
+    if (providers.gradleProperty('withExperienceLib').isPresent()) runtimeOnly 'maven.modrinth:experiencelib:xrg5MjEA'
+    implementation 'org.appliedenergistics:appliedenergistics2:19.2.17'
+    implementation 'dev.shadowsoffire:ApothicEnchanting:1.21.1-1.6.2'
+    implementation 'dev.shadowsoffire:Placebo:1.21.1-9.9.2'
+    implementation 'dev.shadowsoffire:ApothicAttributes:1.21.1-2.10.0'
+    compileOnly 'dev.shadowsoffire:GatewaysToEternity:1.21.1-5.1.0'
+    compileOnly 'dev.shadowsoffire:Apotheosis:1.21.1-8.8.0'
+    if (providers.gradleProperty('withApotheosis').isPresent()) {
+        runtimeOnly 'dev.shadowsoffire:Apotheosis:1.21.1-8.8.0'
+        runtimeOnly 'vazkii.patchouli:Patchouli:1.21.1-92-NEOFORGE'
+    }
+    if (!providers.gradleProperty('withoutSimulatorMods').isPresent()) {
+        runtimeOnly 'dev.shadowsoffire:GatewaysToEternity:1.21.1-5.1.0'
+        runtimeOnly 'dev.shadowsoffire:ApothicSpawners:1.21.1-1.4.0'
+    }
+    compileOnly 'mezz.jei:jei-1.21.1-common-api:19.27.0.340'
+    compileOnly 'mezz.jei:jei-1.21.1-neoforge-api:19.27.0.340'
+    if (!providers.gradleProperty('withoutJei').isPresent()) runtimeOnly 'mezz.jei:jei-1.21.1-neoforge:19.27.0.340'
+    runtimeOnly 'curse.maven:just-dire-things-1002348:7463040'
+    if (providers.gradleProperty('withExtendedAE').isPresent()) {
+        runtimeOnly 'maven.modrinth:extended-ae:1.21-2.2.35-neoforge'
+        runtimeOnly 'maven.modrinth:glodium:1.21-2.2-neoforge'
+    }
+    compileOnly 'maven.modrinth:jade:15.10.6+neoforge'
+    if (!providers.gradleProperty('withoutJade').isPresent()) runtimeOnly 'maven.modrinth:jade:15.10.6+neoforge'
+    runtimeOnly fileTree(dir: 'libs', include: ['*.jar'])
+    if (providers.gradleProperty('withBackpacks').isPresent()) {
+        runtimeOnly 'maven.modrinth:sophisticated-backpacks:rtpYiLmj'
+        runtimeOnly 'maven.modrinth:sophisticated-core:blXGSmAb'
+    }
+}
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+tasks.named('jar') {
+    from('LICENSE')
+    from('THIRD_PARTY_NOTICES.md')
+}
