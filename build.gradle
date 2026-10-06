@@ -3,7 +3,7 @@ plugins {
     id 'net.neoforged.moddev' version '2.0.147'
 }
 group = 'dev.appliedapotheosis'
-version = '1.0.0'
+version = '1.0.1'
 base { archivesName = 'AppliedApotheosis-1.21.1' }
 java { toolchain.languageVersion = JavaLanguageVersion.of(21); withSourcesJar() }
 repositories {
@@ -24,17 +24,29 @@ neoForge {
         server { server(); programArgument '--nogui' }
     }
 }
+// Keep compilation on the oldest supported API; profiles select runtime dependencies only.
+def compatProfile = providers.gradleProperty('compatProfile').orElse('baseline').get()
+if (!(compatProfile in ['baseline', 'latest'])) throw new GradleException('Unknown compatProfile')
+def baseline = [ae2:'19.2.17', enchanting:'1.21.1-1.6.2', placebo:'1.21.1-9.9.2', attributes:'1.21.1-2.10.0', apotheosis:'1.21.1-8.8.0']
+def latest = [ae2:'19.2.18', enchanting:'1.21.1-1.6.3', placebo:'1.21.1-9.9.3', attributes:'1.21.1-2.11.0', apotheosis:'1.21.1-8.9.0']
+def selected = compatProfile == 'latest' ? latest : baseline
+def runtimeVersion = { String key -> providers.gradleProperty(key + 'Version').orElse(selected[key]).get() }
+
 dependencies {
     compileOnly 'maven.modrinth:experiencelib:xrg5MjEA'
     if (providers.gradleProperty('withExperienceLib').isPresent()) runtimeOnly 'maven.modrinth:experiencelib:xrg5MjEA'
-    implementation 'org.appliedenergistics:appliedenergistics2:19.2.17'
-    implementation 'dev.shadowsoffire:ApothicEnchanting:1.21.1-1.6.2'
-    implementation 'dev.shadowsoffire:Placebo:1.21.1-9.9.2'
-    implementation 'dev.shadowsoffire:ApothicAttributes:1.21.1-2.10.0'
+    compileOnly 'org.appliedenergistics:appliedenergistics2:19.2.17'
+    compileOnly 'dev.shadowsoffire:ApothicEnchanting:1.21.1-1.6.2'
+    compileOnly 'dev.shadowsoffire:Placebo:1.21.1-9.9.2'
+    compileOnly 'dev.shadowsoffire:ApothicAttributes:1.21.1-2.10.0'
+    runtimeOnly "org.appliedenergistics:appliedenergistics2:${runtimeVersion('ae2')}"
+    runtimeOnly "dev.shadowsoffire:ApothicEnchanting:${runtimeVersion('enchanting')}"
+    runtimeOnly "dev.shadowsoffire:Placebo:${runtimeVersion('placebo')}"
+    runtimeOnly "dev.shadowsoffire:ApothicAttributes:${runtimeVersion('attributes')}"
     compileOnly 'dev.shadowsoffire:GatewaysToEternity:1.21.1-5.1.0'
     compileOnly 'dev.shadowsoffire:Apotheosis:1.21.1-8.8.0'
     if (providers.gradleProperty('withApotheosis').isPresent()) {
-        runtimeOnly 'dev.shadowsoffire:Apotheosis:1.21.1-8.8.0'
+        runtimeOnly "dev.shadowsoffire:Apotheosis:${runtimeVersion('apotheosis')}"
         runtimeOnly 'vazkii.patchouli:Patchouli:1.21.1-92-NEOFORGE'
     }
     if (!providers.gradleProperty('withoutSimulatorMods').isPresent()) {
